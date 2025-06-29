@@ -19,8 +19,17 @@ declare global {
 
 const Hero: React.FC = () => {
   const [animationLoaded, setAnimationLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     // load unicorn studio script
     const w = window as any;
     if (!w.UnicornStudio) {
@@ -44,6 +53,10 @@ const Hero: React.FC = () => {
         setAnimationLoaded(true);
       }, 1500);
     }
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   const scrollToSection = (href: string) => {
@@ -79,13 +92,13 @@ const Hero: React.FC = () => {
       
       {/* Content - Only show after animation loads */}
       {animationLoaded && (
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10 mt-12">
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10 -mt-12 md:mt-12">
           {/* Main Question */}
           <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light mb-8 leading-[0.9] font-abc-diatype"
+            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 md:mb-8 leading-[0.9] font-abc-diatype"
             style={{
-              color: '#ffffff',
-              WebkitTextStroke: '0.5px #000000',
+              color: isMobile ? '#1f2937' : '#ffffff',
+              WebkitTextStroke: isMobile ? 'none' : '0.25px #000000',
               fontWeight: '300',
               lineHeight: '1'
             } as React.CSSProperties}
@@ -100,10 +113,10 @@ const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <motion.p
-            className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-abc-diatype"
+            className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-abc-diatype -mt-2 md:mt-0"
             style={{
               color: '#ffffff',
-              //WebkitTextStroke: '0px #000000',
+              WebkitTextStroke: isMobile ? '0.1px #000000' : '0.05px #000000',
               fontWeight: '400',
               lineHeight: '1.3'
             } as React.CSSProperties}
