@@ -115,17 +115,17 @@ const Hero: React.FC = () => {
           <motion.p
             className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-abc-diatype -mt-2 md:mt-0"
             style={{
-              color: '#ffffff',
-              WebkitTextStroke: isMobile ? '0.1px #000000' : '0.05px #000000',
-              fontWeight: '400',
+              color: 'rgb(255, 255, 255)',
+              WebkitTextStroke: isMobile ? '0.1px #000000' : '0.01px #000000',
+              fontWeight: '300',
               lineHeight: '1.3'
             } as React.CSSProperties}
             initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
           >
-            Computer Engineering student passionate about creating innovative solutions. 
-            Ready to bring fresh perspective and modern tech skills to your team.
+            Frontend Developer specializing in React, Next.js, and Web3 technologies. 
+            Creating modern, responsive web applications with exceptional user experiences.
           </motion.p>
 
           {/* CTA Buttons */}

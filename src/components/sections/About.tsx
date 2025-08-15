@@ -41,16 +41,16 @@ const About: React.FC = () => {
             {/* Personal Info Brief */}
             <div className="max-w-xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed font-abc-diatype">
-                3rd year Computer Engineering student at Celal Bayar University with passion for
-                creating innovative solutions. Specialized in full-stack development and
-                emerging technologies.
+                Frontend Developer from İzmir, Turkey, with expertise in React, Next.js, and Web3 technologies.
+                Specialized in creating modern, responsive web applications with exceptional user experiences
+                and clean, maintainable code.
               </p>
             </div>
 
             {/* Location & Status */}
             <div className="text-center text-gray-600 font-abc-diatype">
               <p>📍 {PERSONAL_INFO.location}</p>
-              <p className="mt-2">Currently seeking internship and collaboration opportunities</p>
+              <p className="mt-2">{PERSONAL_INFO.status}</p>
             </div>
           </motion.div>
         </motion.div>

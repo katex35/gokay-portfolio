@@ -22,7 +22,7 @@ export const APP_CONFIG = {
   THEME_COLOR: '#ff894d', // orange color matching buttons
 } as const;
 
-export const SECTION_IDS = ['home', 'about', 'projects', 'experience', 'contact'] as const;
+export const SECTION_IDS = ['home', 'about', 'projects', 'contact'] as const;
 
 export const TECH_CATEGORIES = {
   PROGRAMMING_LANGUAGE: 'Programming Languages',

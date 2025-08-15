@@ -12,14 +12,14 @@ import {
 
 // Personal Information
 export const PERSONAL_INFO = {
-  name: 'Gokay Sahin',
-  title: 'Computer Engineering Student',
-  subtitle: '3rd Year Computer Engineering Student',
-  bio: 'Passionate computer engineering student with a strong foundation in software development, data structures, and algorithms. Currently in my 3rd year, I focus on building scalable applications and exploring emerging technologies. I enjoy solving complex problems and contributing to innovative projects.',
+  name: 'Gökay Şahin',
+  title: 'Frontend Developer',
+  subtitle: 'Frontend Developer & Web3 Specialist',
+  bio: 'Frontend Developer specializing in React, Next.js, and Web3 technologies. I create modern, responsive web applications with exceptional user experiences. Expert in TypeScript, Tailwind CSS, and blockchain integration. Passionate about building innovative digital solutions that make a difference.',
   email: 'gokay285@gmail.com', 
   location: 'Turkey, Izmir',
   resumeUrl: '/resume.pdf',
-  status: 'Currently seeking internship and collaboration opportunities',
+  status: 'Available for freelance projects and full-time opportunities',
 };
 
 // Social Links
@@ -296,6 +296,5 @@ export const NAVIGATION_ITEMS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ]; 

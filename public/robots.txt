@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gokaysahin.com/sitemap.xml
+
+# Block access to admin areas if any
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+
+# SEO directives
+Crawl-delay: 1
