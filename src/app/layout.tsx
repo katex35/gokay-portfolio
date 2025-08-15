@@ -5,9 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { StaticHeader } from '@/components/StaticContent';
 import StructuredData from '@/components/StructuredData';
-import LanguageToggle from '@/components/ui/LanguageToggle';
-import ClientOnly from '@/components/ClientOnly';
-import { LanguageProvider } from '@/contexts/LanguageContext';
+import SimpleLanguageToggle from '@/components/ui/SimpleLanguageToggle';
 import { PERSONAL_INFO } from '@/constants/personal-data';
 import { APP_CONFIG } from '@/utils/constants';
 
@@ -118,6 +116,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className={`${neueMachina.variable} ${abcDiatype.variable} ${geistMono.variable} font-sans antialiased`}>
+        <SimpleLanguageToggle />
         <Header />
         {children}
         <Footer />
@@ -126,30 +125,4 @@ export default function RootLayout({
   );
 }
 
-// Client component for language toggle
-function LanguageToggleClient() {
-  'use client';
-  
-  const [mounted, setMounted] = React.useState(false);
-  const [language, setLanguage] = React.useState<'en' | 'tr'>('en');
-  
-  React.useEffect(() => {
-    setMounted(true);
-    const savedLang = localStorage.getItem('language') as 'en' | 'tr';
-    if (savedLang) setLanguage(savedLang);
-  }, []);
-  
-  const handleLanguageChange = (lang: 'en' | 'tr') => {
-    setLanguage(lang);
-    localStorage.setItem('language', lang);
-  };
-  
-  if (!mounted) return null;
-  
-  return (
-    <LanguageToggle 
-      currentLang={language} 
-      onLanguageChange={handleLanguageChange} 
-    />
-  );
-} 
+ 

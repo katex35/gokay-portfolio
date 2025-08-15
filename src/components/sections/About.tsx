@@ -43,7 +43,7 @@ const About: React.FC = () => {
           >
             {/* Personal Info Brief */}
             <div className="max-w-xl mx-auto">
-              <p className="text-lg text-gray-700 leading-relaxed font-abc-diatype">
+              <p data-about-desc className="text-lg text-gray-700 leading-relaxed font-abc-diatype">
                 Frontend Developer from İzmir, Turkey, with expertise in React, Next.js, and Web3 technologies.
                 Specialized in creating modern, responsive web applications with exceptional user experiences
                 and clean, maintainable code.
@@ -53,7 +53,7 @@ const About: React.FC = () => {
             {/* Location & Status */}
             <div className="text-center text-gray-600 font-abc-diatype">
               <p>📍 İzmir, Turkey</p>
-              <p className="mt-2">Available for freelance projects and full-time opportunities</p>
+              <p data-status-text className="mt-2">Available for freelance projects and full-time opportunities</p>
             </div>
           </motion.div>
         </motion.div>

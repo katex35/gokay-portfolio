@@ -97,6 +97,7 @@ const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10 -mt-12 md:mt-12">
           {/* Main Question */}
           <motion.h1
+            data-hero-title
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 md:mb-8 leading-[0.9] font-abc-diatype"
             style={{
               color: isMobile ? '#1f2937' : '#ffffff',
@@ -115,6 +116,7 @@ const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <motion.p
+            data-hero-desc
             className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-abc-diatype -mt-2 md:mt-0"
             style={{
               color: 'rgb(255, 255, 255)',
@@ -141,6 +143,7 @@ const Hero: React.FC = () => {
               variant="primary"
               size="md"
               onClick={() => scrollToSection('#projects')}
+              data-projects-btn
             >
               Projects
             </Button>
@@ -148,6 +151,7 @@ const Hero: React.FC = () => {
               variant="outline"
               size="md"
               onClick={() => scrollToSection('#contact')}
+              data-contact-btn
             >
               Get in touch
             </Button>
