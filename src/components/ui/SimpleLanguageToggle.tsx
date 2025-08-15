@@ -14,11 +14,11 @@ const SimpleLanguageToggle: React.FC = () => {
       const heroSection = document.getElementById('home');
       if (!heroSection) return;
 
-      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-      const scrollPosition = window.scrollY + 100;
-
-      // Hero section görünürlük kontrolü
-      const isHeroInView = scrollPosition < heroBottom;
+      const scrollPosition = window.scrollY;
+      const scrollThreshold = 100; // Header'ın göründüğü threshold ile aynı
+      
+      // Header ile senkronize: header gözüktüğünde buton sağ alta geçer
+      const isHeroInView = scrollPosition < scrollThreshold;
       setIsHeroVisible(isHeroInView);
 
       // Hero animasyonları bittiğinde butonu göster
@@ -30,8 +30,11 @@ const SimpleLanguageToggle: React.FC = () => {
     // Hero animasyonları için delay
     const timer = setTimeout(() => {
       setShowButton(true);
-      handleScroll();
+      handleScroll(); // Initial check
     }, 2000);
+
+    // Initial state check - sayfa ilk yüklendiğinde
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     
@@ -154,10 +157,10 @@ const SimpleLanguageToggle: React.FC = () => {
             className={`
               flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md
               transition-all duration-300 hover:scale-105 active:scale-95
-              border border-white/20 shadow-lg hover:shadow-xl
+              shadow-lg hover:shadow-xl
               ${isHeroVisible 
-                ? 'bg-white/10 text-white hover:bg-white/20' 
-                : 'bg-white/90 text-gray-900 hover:bg-white'
+                ? 'bg-gray-900/80 text-white border border-gray-700/50 hover:bg-gray-900/90' 
+                : 'bg-white/90 text-gray-900 border border-gray-200/50 hover:bg-white'
               }
             `}
             whileHover={{ scale: 1.05 }}
