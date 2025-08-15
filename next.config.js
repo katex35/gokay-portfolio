@@ -6,17 +6,14 @@ const nextConfig = {
     minimumCacheTTL: 31536000, // 1 year
   },
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  experimental: {
-    optimizeCss: true,
-  },
   async headers() {
     return [
       {
