@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { PERSONAL_INFO, NAVIGATION_ITEMS } from '@/constants/personal-data';
 import { APP_CONFIG } from '@/utils/constants';
+// import { useLanguage } from '@/contexts/LanguageContext';
 import Button from '@/components/ui/Button';
 
 const Header: React.FC = () => {
+  // const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -34,6 +36,11 @@ const Header: React.FC = () => {
         setIsMobileMenuOpen(false);
       }
     }
+  };
+
+  // Navigation items with translations
+  const getNavLabel = (label: string) => {
+    return label; // Temporarily return original label
   };
 
   // Filter navigation items to show only Projects and About
@@ -70,7 +77,7 @@ const Header: React.FC = () => {
                 onClick={() => scrollToSection(item.href)}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors font-abc-diatype"
               >
-                {item.label}
+                {getNavLabel(item.label)}
               </button>
             ))}
             <Button

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
+// import { useLanguage } from '@/contexts/LanguageContext';
 
 // declare global unicorn studio types
 declare global {
@@ -18,6 +19,7 @@ declare global {
 }
 
 const Hero: React.FC = () => {
+  // const { t } = useLanguage();
   const [animationLoaded, setAnimationLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 

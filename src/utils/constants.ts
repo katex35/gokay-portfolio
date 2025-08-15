@@ -19,7 +19,7 @@ export const APP_CONFIG = {
   },
   
   // theme
-  THEME_COLOR: '#ff894d', // orange color matching buttons
+  THEME_COLOR: '#ffffff', // orange color matching buttons
 } as const;
 
 export const SECTION_IDS = ['home', 'about', 'projects', 'contact'] as const;
