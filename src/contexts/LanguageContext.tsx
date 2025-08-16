@@ -52,7 +52,7 @@ const translations = {
   tr: {
     // Hero Section
     'hero.greeting': "Merhaba, Ben Gökay.",
-    'hero.subtitle': 'Senin bir sonraki geliştirici.',
+    'hero.subtitle': 'Senin Yeni Mühendisin.',
     'hero.description': 'React, Next.js ve Web3 teknolojilerinde uzmanlaşmış Frontend Developer. Modern, responsive web uygulamaları ve olağanüstü kullanıcı deneyimleri oluşturuyorum.',
     'hero.cta.projects': 'Projeler',
     'hero.cta.contact': 'İletişime geç',

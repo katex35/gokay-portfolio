@@ -96,41 +96,49 @@ const Hero: React.FC = () => {
       {animationLoaded && (
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10 -mt-12 md:mt-12">
           {/* Main Question */}
-          <motion.h1
-            data-hero-title
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 md:mb-8 leading-[0.9] font-abc-diatype"
-            style={{
-              color: isMobile ? '#1f2937' : '#ffffff',
-              WebkitTextStroke: isMobile ? 'none' : '0.25px #000000',
-              fontWeight: '300',
-              lineHeight: '1'
-            } as React.CSSProperties}
-            initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-          >
-            Hi, I'm Gökay.{' '}
-            <br className="hidden sm:block" />
-            Your next developer.
-          </motion.h1>
+          <div className="relative">
+            {/* Blur backdrop behind text */}
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-2xl -m-4 z-0"></div>
+            <motion.h1
+              data-hero-title
+              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 md:mb-8 leading-[0.9] font-abc-diatype relative z-10"
+              style={{
+                color: isMobile ? '#1f2937' : '#ffffff',
+                WebkitTextStroke: isMobile ? 'none' : '0.25px #000000',
+                fontWeight: '300',
+                lineHeight: '1'
+              } as React.CSSProperties}
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+            >
+              Hi, I'm Gökay.{' '}
+              <br className="hidden sm:block" />
+              Your next developer.
+            </motion.h1>
+          </div>
 
           {/* Subtitle */}
-          <motion.p
-            data-hero-desc
-            className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-abc-diatype -mt-2 md:mt-0"
-            style={{
-              color: 'rgb(255, 255, 255)',
-              WebkitTextStroke: isMobile ? '0.1px #000000' : '0.01px #000000',
-              fontWeight: '300',
-              lineHeight: '1.3'
-            } as React.CSSProperties}
-            initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-          >
-            Frontend Developer specializing in React, Next.js, and Web3 technologies. 
-            Creating modern, responsive web applications with exceptional user experiences.
-          </motion.p>
+          <div className="relative">
+            {/* Blur backdrop behind subtitle */}
+            <div className="absolute inset-0 bg-black/15 backdrop-blur-sm rounded-xl -m-3 z-0"></div>
+            <motion.p
+              data-hero-desc
+              className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-abc-diatype -mt-2 md:mt-0 relative z-10"
+              style={{
+                color: 'rgb(255, 255, 255)',
+                WebkitTextStroke: isMobile ? '0.1px #000000' : '0.01px #000000',
+                fontWeight: '300',
+                lineHeight: '1.3'
+              } as React.CSSProperties}
+              initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+            >
+              Frontend Developer specializing in React, Next.js, and Web3 technologies. 
+              Creating modern, responsive web applications with exceptional user experiences.
+            </motion.p>
+          </div>
 
           {/* CTA Buttons */}
           <motion.div

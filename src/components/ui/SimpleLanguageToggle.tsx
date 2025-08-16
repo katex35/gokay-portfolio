@@ -70,7 +70,7 @@ const SimpleLanguageToggle: React.FC = () => {
       },
       tr: {
         greeting: "Merhaba, Ben Gökay.",
-        subtitle: "Senin bir sonraki geliştirici.",
+        subtitle: "Senin Yeni Mühendisin.",
         description: "React, Next.js ve Web3 teknolojilerinde uzmanlaşmış Frontend Developer. Modern, responsive web uygulamaları ve olağanüstü kullanıcı deneyimleri oluşturuyorum.",
         projects: "Projeler",
         contact: "İletişime geç",
