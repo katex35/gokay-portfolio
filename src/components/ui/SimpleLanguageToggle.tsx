@@ -14,27 +14,24 @@ const SimpleLanguageToggle: React.FC = () => {
       const heroSection = document.getElementById('home');
       if (!heroSection) return;
 
-      const scrollPosition = window.scrollY;
-      const scrollThreshold = 100; // Header'ın göründüğü threshold ile aynı
-      
-      // Header ile senkronize: header gözüktüğünde buton sağ alta geçer
-      const isHeroInView = scrollPosition < scrollThreshold;
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const scrollPosition = window.scrollY + 100;
+
+      // Hero section görünürlük kontrolü - Header ile senkronize
+      const isHeroInView = scrollPosition < 100; // Header threshold ile aynı
       setIsHeroVisible(isHeroInView);
 
       // Hero animasyonları bittiğinde butonu göster
-      if (scrollPosition > 200) {
+      if (scrollPosition > 50) {
         setShowButton(true);
       }
     };
 
-    // Hero animasyonları için delay
+    // Hero animasyonları için delay - daha erken göster
     const timer = setTimeout(() => {
       setShowButton(true);
-      handleScroll(); // Initial check
-    }, 2000);
-
-    // Initial state check - sayfa ilk yüklendiğinde
-    handleScroll();
+      handleScroll();
+    }, 1000);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     
@@ -64,8 +61,12 @@ const SimpleLanguageToggle: React.FC = () => {
         aboutTitle2: "Think Smarter.", 
         aboutTitle3: "Ship Faster.",
         aboutTitle4: "Create Impact.",
+        aboutSubtitle: "The best developers don't just code. When they work on your project, they don't look for features, they look for solutions to real problems. They look for YOUR VISION.",
         aboutDesc: "Frontend Developer from İzmir, Turkey, with expertise in React, Next.js, and Web3 technologies. Specialized in creating modern, responsive web applications with exceptional user experiences and clean, maintainable code.",
-        status: "Available for freelance projects and full-time opportunities"
+        status: "Available for freelance projects and full-time opportunities",
+        location: "İzmir, Turkey",
+        navAbout: "About",
+        navProjects: "Projects"
       },
       tr: {
         greeting: "Merhaba, Ben Gökay.",
@@ -73,12 +74,16 @@ const SimpleLanguageToggle: React.FC = () => {
         description: "React, Next.js ve Web3 teknolojilerinde uzmanlaşmış Frontend Developer. Modern, responsive web uygulamaları ve olağanüstü kullanıcı deneyimleri oluşturuyorum.",
         projects: "Projeler",
         contact: "İletişime geç",
-        aboutTitle1: "Daha İyi Ürünler Yap.",
+        aboutTitle1: "Daha İyi Ürünler Geliştir.",
         aboutTitle2: "Daha Akıllı Düşün.",
         aboutTitle3: "Daha Hızlı Teslim Et.", 
         aboutTitle4: "Etki Yarat.",
+        aboutSubtitle: "En iyi geliştiriciler sadece kod yazmaz. Projenizde çalışırken özellik aramaz, gerçek problemlere çözüm ararlar. SİZİN VİZYONUNUZU ararlar.",
         aboutDesc: "İzmir, Türkiye merkezli Frontend Developer. React, Next.js ve Web3 teknolojilerinde uzman. Modern, responsive web uygulamaları ve olağanüstü kullanıcı deneyimleri ile temiz, sürdürülebilir kod yazmada uzmanım.",
-        status: "Freelance projeler ve tam zamanlı fırsatlar için müsait"
+        status: "Freelance projeler ve tam zamanlı fırsatlar için müsait",
+        location: "İzmir, Türkiye",
+        navAbout: "Hakkımda",
+        navProjects: "Projeler"
       }
     };
 
@@ -89,6 +94,14 @@ const SimpleLanguageToggle: React.FC = () => {
     const heroTitle = document.querySelector('[data-hero-title]');
     if (heroTitle) {
       heroTitle.innerHTML = `${content.greeting}<br class="hidden sm:block" />${content.subtitle}`;
+      // Türkçe için font boyutunu küçült
+      if (lang === 'tr') {
+        heroTitle.classList.add('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'xl:text-7xl');
+        heroTitle.classList.remove('text-5xl', 'sm:text-6xl', 'lg:text-7xl', 'xl:text-8xl');
+      } else {
+        heroTitle.classList.remove('text-4xl', 'sm:text-5xl', 'lg:text-6xl', 'xl:text-7xl');
+        heroTitle.classList.add('text-5xl', 'sm:text-6xl', 'lg:text-7xl', 'xl:text-8xl');
+      }
     }
     
     const heroDesc = document.querySelector('[data-hero-desc]');
@@ -107,6 +120,11 @@ const SimpleLanguageToggle: React.FC = () => {
     }
 
     // About section updates
+    const aboutSubtitle = document.querySelector('[data-about-subtitle]');
+    if (aboutSubtitle) {
+      aboutSubtitle.textContent = content.aboutSubtitle;
+    }
+
     const aboutDesc = document.querySelector('[data-about-desc]');
     if (aboutDesc) {
       aboutDesc.textContent = content.aboutDesc;
@@ -116,6 +134,31 @@ const SimpleLanguageToggle: React.FC = () => {
     if (statusText) {
       statusText.textContent = content.status;
     }
+
+    const locationText = document.querySelector('[data-location-text]');
+    if (locationText) {
+      locationText.textContent = `📍 ${content.location}`;
+    }
+
+    // About title updates
+    const aboutTitle1 = document.querySelector('[data-about-title-1]');
+    if (aboutTitle1) aboutTitle1.textContent = content.aboutTitle1;
+    
+    const aboutTitle2 = document.querySelector('[data-about-title-2]');
+    if (aboutTitle2) aboutTitle2.textContent = content.aboutTitle2;
+    
+    const aboutTitle3 = document.querySelector('[data-about-title-3]');
+    if (aboutTitle3) aboutTitle3.textContent = content.aboutTitle3;
+    
+    const aboutTitle4 = document.querySelector('[data-about-title-4]');
+    if (aboutTitle4) aboutTitle4.textContent = content.aboutTitle4;
+
+    // Header navigation updates
+    const navAbout = document.querySelector('[data-nav-about]');
+    if (navAbout) navAbout.textContent = content.navAbout;
+    
+    const navProjects = document.querySelector('[data-nav-projects]');
+    if (navProjects) navProjects.textContent = content.navProjects;
   };
 
   return (
@@ -157,10 +200,10 @@ const SimpleLanguageToggle: React.FC = () => {
             className={`
               flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md
               transition-all duration-300 hover:scale-105 active:scale-95
-              shadow-lg hover:shadow-xl
+              border shadow-lg hover:shadow-xl
               ${isHeroVisible 
-                ? 'bg-gray-900/80 text-white border border-gray-700/50 hover:bg-gray-900/90' 
-                : 'bg-white/90 text-gray-900 border border-gray-200/50 hover:bg-white'
+                ? 'bg-white/15 text-white hover:bg-white/25 border-white/30' 
+                : 'bg-white/95 text-gray-900 hover:bg-white border-gray-200'
               }
             `}
             whileHover={{ scale: 1.05 }}

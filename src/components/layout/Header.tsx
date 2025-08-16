@@ -76,6 +76,7 @@ const Header: React.FC = () => {
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors font-abc-diatype"
+                {...{[`data-nav-${item.label.toLowerCase()}`]: true}}
               >
                 {getNavLabel(item.label)}
               </button>
@@ -113,8 +114,9 @@ const Header: React.FC = () => {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className="block w-full text-left px-4 py-2 text-gray-600 hover:text-gray-900"
+                  {...{[`data-nav-${item.label.toLowerCase()}`]: true}}
                 >
-                  {item.label}
+                  {getNavLabel(item.label)}
                 </button>
               ))}
               <div className="px-4 pt-2">
