@@ -89,7 +89,7 @@ export const metadata = {
     title: `${PERSONAL_INFO.name} - Frontend Developer | React & Next.js Specialist`,
     description: 'Frontend Developer specializing in React, Next.js, TypeScript, and Web3 technologies. Creating modern web applications.',
     images: ['/logos/android-chrome-512x512.png'],
-    creator: '@gokay_sahin_', // Twitter handle if available
+    creator: '@katex35', // Twitter handle if available
   },
   verification: {
     google: 'your-google-site-verification-code', // Google Search Console verification
@@ -111,8 +111,9 @@ export default function RootLayout({
     <html lang="tr" className="scroll-smooth">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/logos/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/logos/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="/logos/favicon-32x32.png" sizes="32x32" />
         <StructuredData />
       </head>
       <body className={`${neueMachina.variable} ${abcDiatype.variable} ${geistMono.variable} font-sans antialiased`}>
