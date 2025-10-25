@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import { StaticHeader } from '@/components/StaticContent';
 import StructuredData from '@/components/StructuredData';
 import SimpleLanguageToggle from '@/components/ui/SimpleLanguageToggle';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 import { PERSONAL_INFO } from '@/constants/personal-data';
 import { APP_CONFIG } from '@/utils/constants';
 
@@ -115,15 +116,27 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logos/apple-touch-icon.png" />
         <link rel="icon" type="image/png" href="/logos/favicon-32x32.png" sizes="32x32" />
         <StructuredData />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKYGRD8V0V"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-YKYGRD8V0V');
+            `,
+          }}
+        />
       </head>
       <body className={`${neueMachina.variable} ${abcDiatype.variable} ${geistMono.variable} font-sans antialiased`}>
-        <SimpleLanguageToggle />
-        <Header />
-        {children}
-        <Footer />
+        <LanguageProvider>
+          <SimpleLanguageToggle />
+          <Header />
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
 }
-
- 

@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-type Language = 'en' | 'tr';
+export type Language = 'en' | 'tr';
 
 interface LanguageContextType {
   language: Language;
@@ -40,14 +40,39 @@ const translations = {
     // Projects Section
     'projects.title': 'Featured Projects',
     'projects.subtitle': 'Some of my recent work',
+    'projects.preview': 'Project Preview',
+    'projects.technologiesLabel': 'Technologies',
+    'projects.featuredLabel': 'Featured Project',
+    'projects.personalLabel': 'Personal Project',
+    'projects.actions.showMore': 'Click to view more',
+    'projects.actions.showLess': 'Show less',
+    'projects.actions.viewDemo': 'View Live Demo',
+    'projects.actions.viewSource': 'View Source Code',
+    'projects.osol-ai.title': 'OSOL.AI - Decentralized ETF Platform',
+    'projects.osol-ai.description': 'Developed a React-based web application for a decentralized ETF platform on Solana blockchain. The project involved implementing real-time market data visualization using custom hooks and Zustand for state management, while building responsive UI components with Geist UI and Framer Motion. Integrated Solana wallet connectivity and Jupiter Terminal for DEX trading functionality, and created performance tracking features including NAV calculations and asset allocation charts.',
+    'projects.monaliens.title': 'Monaliens - Web3 Gaming & Messaging DApp',
+    'projects.monaliens.description': 'Built a comprehensive decentralized application on Monad Testnet featuring three core functionalities: NFT-based spin wheel gaming, raffle system, and encrypted messaging platform. Implemented advanced Web3 integration with React 18, TypeScript, and modern blockchain technologies. Created responsive, mobile-first UI with wallet connectivity, smart contract integration, and real-time blockchain data management.',
     
     // Contact Section
     'contact.title': 'Get In Touch',
     'contact.subtitle': "Let's work together",
-    'contact.description': "I'm always interested in new opportunities and exciting projects.",
+  'contact.description': "I help companies and startups bring their ideas to life. When you're ready to discuss your next project, I'm here to listen and collaborate.",
+    'contact.headline.line1': "Let's Start a",
+    'contact.headline.line2': 'Conversation.',
+    'contact.email.label': 'Email me at',
+    'contact.location.label': 'Based in',
+    'contact.social.label': 'Connect with me',
     
     // Common
     'common.location': 'İzmir, Turkey',
+    'footer.headline.line1': 'Ready to Build',
+    'footer.headline.line2': 'Something Amazing?',
+    'footer.headline.line3': "Let's Create Impact.",
+    'footer.headline.line4': "Let's Innovate Together.",
+    'footer.description': "Every great project starts with a conversation. When you're ready to turn your ideas into reality, I'm here to help you build solutions that matter.",
+    'footer.quote': '"Quality means doing it right when no one is looking." - Henry Ford',
+    'footer.rights': 'All rights reserved.',
+    'footer.email': 'Email',
   },
   tr: {
     // Hero Section
@@ -75,14 +100,39 @@ const translations = {
     // Projects Section
     'projects.title': 'Öne Çıkan Projeler',
     'projects.subtitle': 'Son çalışmalarımdan bazıları',
+    'projects.preview': 'Proje Önizlemesi',
+    'projects.technologiesLabel': 'Teknolojiler',
+    'projects.featuredLabel': 'Öne Çıkan Proje',
+    'projects.personalLabel': 'Kişisel Proje',
+    'projects.actions.showMore': 'Daha fazlasını görmek için tıkla',
+    'projects.actions.showLess': 'Daha az göster',
+    'projects.actions.viewDemo': 'Canlı Demoyu Görüntüle',
+    'projects.actions.viewSource': 'Kaynak Kodu Görüntüle',
+    'projects.osol-ai.title': 'OSOL.AI - Merkeziyetsiz ETF Platformu',
+    'projects.osol-ai.description': 'Solana blokzinciri üzerinde merkeziyetsiz bir ETF platformu için React tabanlı bir web uygulaması geliştirdim. Projede, özel hook\'lar ve durum yönetimi için Zustand kullanarak gerçek zamanlı piyasa verisi görselleştirmeleri oluşturdum; Geist UI ve Framer Motion ile responsive arayüz bileşenleri inşa ettim. Solana cüzdan bağlantısını ve DEX işlemleri için Jupiter Terminal entegrasyonunu sağladım, NAV hesaplamaları ve varlık dağılım grafikleri gibi performans takip özellikleri geliştirdim.',
+    'projects.monaliens.title': 'Monaliens - Web3 Oyun ve Mesajlaşma DApp\'i',
+    'projects.monaliens.description': 'Monad Testnet üzerinde NFT tabanlı çark oyunu, çekiliş sistemi ve şifreli mesajlaşma platformu olmak üzere üç temel işlev sunan kapsamlı bir merkeziyetsiz uygulama geliştirdim. React 18, TypeScript ve modern blokzincir teknolojileriyle ileri seviye Web3 entegrasyonu gerçekleştirdim. Cüzdan bağlantısı, akıllı sözleşme entegrasyonu ve gerçek zamanlı blokzincir veri yönetimi içeren responsive, mobil öncelikli bir arayüz tasarladım.',
     
     // Contact Section
     'contact.title': 'İletişime Geçin',
     'contact.subtitle': 'Birlikte çalışalım',
-    'contact.description': 'Yeni fırsatlar ve heyecan verici projelerle her zaman ilgiliyim.',
+  'contact.description': 'Şirketlerin ve girişimlerin fikirlerini hayata geçirmelerine yardımcı oluyorum. Bir sonraki projenizi konuşmaya hazır olduğunuzda, dinlemek ve birlikte çalışmak için buradayım.',
+    'contact.headline.line1': 'Hadi bir',
+    'contact.headline.line2': 'Sohbet Başlatalım.',
+    'contact.email.label': 'Bana e-posta ile ulaş',
+    'contact.location.label': 'Bulunduğum yer',
+    'contact.social.label': 'Benimle bağlantı kur',
     
     // Common
     'common.location': 'İzmir, Türkiye',
+    'footer.headline.line1': 'Hazır mısın',
+    'footer.headline.line2': 'Harika Bir Şey İnşa Etmeye?',
+    'footer.headline.line3': 'Birlikte Etki Yaratalım.',
+    'footer.headline.line4': 'Haydi Yenilik Yapalım.',
+    'footer.description': 'Her başarılı proje bir sohbetle başlar. Fikirlerini gerçeğe dönüştürmeye hazırsan, değer katan çözümleri birlikte inşa edelim.',
+    'footer.quote': '"Kalite, kimse bakmadığında da doğru olanı yapmaktır." - Henry Ford',
+    'footer.rights': 'Tüm hakları saklıdır.',
+    'footer.email': 'E-posta',
   }
 };
 
@@ -116,7 +166,11 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   // Çeviri fonksiyonu
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.en] || key;
+    return (
+      translations[language][key as keyof typeof translations.en] ||
+      translations.en[key as keyof typeof translations.en] ||
+      key
+    );
   };
 
   const value: LanguageContextType = {
@@ -131,7 +185,9 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       <LanguageContext.Provider value={{
         language: 'en',
         setLanguage: () => {},
-        t: (key: string) => translations.en[key as keyof typeof translations.en] || key
+        t: (key: string) =>
+          translations.en[key as keyof typeof translations.en] ||
+          key
       }}>
         {children}
       </LanguageContext.Provider>

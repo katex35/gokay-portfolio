@@ -2,9 +2,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CONTACT, PERSONAL_INFO } from '@/constants/personal-data';
+import { CONTACT } from '@/constants/personal-data';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-6 text-center">
@@ -16,14 +18,13 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900 mb-8 leading-tight font-abc-diatype">
-            Let's Start a
+            {t('contact.headline.line1')}
             <br />
-            Conversation.
+            {t('contact.headline.line2')}
           </h2>
 
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-12">
-            I help companies and startups bring their ideas to life. When you're ready to discuss 
-            your next project, I'm here to listen and collaborate.
+            {t('contact.description')}
           </p>
 
           {/* Contact Information */}
@@ -36,7 +37,7 @@ const Contact: React.FC = () => {
           >
             {/* Email */}
             <div>
-              <p className="text-gray-600 mb-2">Email me at</p>
+              <p className="text-gray-600 mb-2">{t('contact.email.label')}</p>
               <a
                 href={`mailto:${CONTACT.email}`}
                 className="text-2xl sm:text-3xl text-gray-900 hover:text-gray-600 transition-colors font-medium"
@@ -47,13 +48,13 @@ const Contact: React.FC = () => {
 
             {/* Location */}
             <div>
-              <p className="text-gray-600 mb-2">Based in</p>
-              <p className="text-xl text-gray-900">{CONTACT.location}</p>
+              <p className="text-gray-600 mb-2">{t('contact.location.label')}</p>
+              <p className="text-xl text-gray-900">{t('common.location')}</p>
             </div>
 
             {/* Social Links */}
             <div className="pt-8">
-              <p className="text-gray-600 mb-6">Connect with me</p>
+              <p className="text-gray-600 mb-6">{t('contact.social.label')}</p>
               <div className="flex justify-center space-x-8">
                 {CONTACT.socialLinks.map((social) => (
                   <a
@@ -72,7 +73,7 @@ const Contact: React.FC = () => {
             {/* Call to Action */}
             <div className="pt-8">
               <p className="text-gray-600">
-                {PERSONAL_INFO.status}
+                {t('about.status')}
               </p>
             </div>
           </motion.div>

@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { PERSONAL_INFO, NAVIGATION_ITEMS } from '@/constants/personal-data';
 import { APP_CONFIG } from '@/utils/constants';
-// import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Button from '@/components/ui/Button';
 
 const Header: React.FC = () => {
-  // const { t } = useLanguage();
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,14 +38,18 @@ const Header: React.FC = () => {
     }
   };
 
-  // Navigation items with translations
-  const getNavLabel = (label: string) => {
-    return label; // Temporarily return original label
+  const getNavLabel = (href: string, fallback: string) => {
+    if (!href.startsWith('#')) {
+      return fallback;
+    }
+    const key = `nav.${href.replace('#', '')}`;
+    const translated = t(key);
+    return translated === key ? fallback : translated;
   };
 
   // Filter navigation items to show only Projects and About
   const visibleNavItems = NAVIGATION_ITEMS.filter(item => 
-    item.label === 'Projects' || item.label === 'About'
+    item.href === '#projects' || item.href === '#about'
   );
 
   if (!isScrolled) return null;
@@ -78,7 +82,7 @@ const Header: React.FC = () => {
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors font-abc-diatype"
                 {...{[`data-nav-${item.label.toLowerCase()}`]: true}}
               >
-                {getNavLabel(item.label)}
+                {getNavLabel(item.href, item.label)}
               </button>
             ))}
             <Button
@@ -86,7 +90,7 @@ const Header: React.FC = () => {
               size="sm"
               onClick={() => scrollToSection('#contact')}
             >
-              Get in touch
+              {t('hero.cta.contact')}
             </Button>
           </nav>
 
@@ -116,7 +120,7 @@ const Header: React.FC = () => {
                   className="block w-full text-left px-4 py-2 text-gray-600 hover:text-gray-900"
                   {...{[`data-nav-${item.label.toLowerCase()}`]: true}}
                 >
-                  {getNavLabel(item.label)}
+                  {getNavLabel(item.href, item.label)}
                 </button>
               ))}
               <div className="px-4 pt-2">
@@ -126,7 +130,7 @@ const Header: React.FC = () => {
                   className="w-full rounded-full border-gray-300"
                   onClick={() => scrollToSection('#contact')}
                 >
-                  Get in touch
+                  {t('hero.cta.contact')}
                 </Button>
               </div>
             </div>

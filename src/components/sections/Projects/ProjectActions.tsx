@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProjectActionsProps {
   isExpanded: boolean;
@@ -10,6 +11,7 @@ interface ProjectActionsProps {
 }
 
 const ProjectActions: React.FC<ProjectActionsProps> = ({ isExpanded, onToggle }) => {
+  const { t } = useLanguage();
   return (
     <div className="text-center">
       <motion.button
@@ -18,9 +20,7 @@ const ProjectActions: React.FC<ProjectActionsProps> = ({ isExpanded, onToggle })
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <span>
-          {isExpanded ? 'Show less' : 'Click to view more'}
-        </span>
+        <span>{isExpanded ? t('projects.actions.showLess') : t('projects.actions.showMore')}</span>
         <motion.div
           animate={{ rotate: isExpanded ? 45 : 0 }}
           transition={{ duration: 0.2 }}

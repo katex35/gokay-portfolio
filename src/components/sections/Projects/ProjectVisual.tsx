@@ -2,12 +2,14 @@
 
 import React from 'react';
 import { Project } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProjectVisualProps {
   project: Project;
 }
 
 const ProjectVisual: React.FC<ProjectVisualProps> = ({ project }) => {
+  const { t } = useLanguage();
   const hasImages = project.images && project.images.length > 0;
 
   return (
@@ -22,7 +24,7 @@ const ProjectVisual: React.FC<ProjectVisualProps> = ({ project }) => {
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <div className="text-center">
-              <p className="text-gray-500 text-lg">Project Preview</p>
+              <p className="text-gray-500 text-lg">{t('projects.preview')}</p>
             </div>
           </div>
         )}

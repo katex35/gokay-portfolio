@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProjectDetailsProps {
   project: Project;
@@ -10,6 +11,14 @@ interface ProjectDetailsProps {
 }
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, isExpanded }) => {
+  const { t } = useLanguage();
+
+  const projectDescription = useMemo(() => {
+    const descriptionKey = `projects.${project.id}.description`;
+    const translated = t(descriptionKey);
+    return translated === descriptionKey ? project.description : translated;
+  }, [project.description, project.id, t]);
+
   return (
     <AnimatePresence mode="wait">
       {isExpanded && (
@@ -26,7 +35,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, isExpanded }) 
         >
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-xl text-gray-700 leading-relaxed mb-8 font-abc-diatype">
-              {project.description}
+              {projectDescription}
             </p>
             
             {/* Technologies */}
@@ -50,7 +59,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, isExpanded }) 
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
                 >
-                  View Live Demo
+                  {t('projects.actions.viewDemo')}
                 </a>
               )}
               {project.sourceUrl && (
@@ -60,7 +69,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, isExpanded }) 
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-gray-700 rounded-full font-medium hover:bg-gray-50 transition-colors"
                 >
-                  View Source Code
+                  {t('projects.actions.viewSource')}
                 </a>
               )}
             </div>

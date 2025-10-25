@@ -4,9 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
 import { CONTACT, PERSONAL_INFO } from '@/constants/personal-data';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { SocialPlatform } from '@/types';
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage();
   const scrollToSection = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
@@ -52,18 +54,17 @@ const Footer: React.FC = () => {
           className="mb-12"
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900 mb-8 leading-tight font-abc-diatype">
-            Ready to Build
+            {t('footer.headline.line1')}
             <br />
-            Something Amazing?
+            {t('footer.headline.line2')}
             <br />
-            Let's Create Impact.
+            {t('footer.headline.line3')}
             <br />
-            Let's Innovate Together.
+            {t('footer.headline.line4')}
           </h2>
 
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
-            Every great project starts with a conversation. When you're ready to turn your ideas into reality,
-            I'm here to help you build solutions that matter.
+            {t('footer.description')}
           </p>
 
           <Button
@@ -72,7 +73,7 @@ const Footer: React.FC = () => {
             onClick={() => scrollToSection('#contact')}
             className="rounded-full px-8 py-4"
           >
-            Get in touch
+            {t('hero.cta.contact')}
           </Button>
         </motion.div>
 
@@ -85,11 +86,13 @@ const Footer: React.FC = () => {
           className="border-t border-gray-200 pt-8"
         >
           <p className="text-gray-500 text-sm mb-4">
-            "Quality means doing it right when no one is looking." - Henry Ford
+            {t('footer.quote')}
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-gray-400 text-sm">
-            <span>©{currentYear} {PERSONAL_INFO.name}. All rights reserved.</span>
+            <span>
+              ©{currentYear} {PERSONAL_INFO.name}. {t('footer.rights')}
+            </span>
             <div className="flex space-x-4">
               {CONTACT.socialLinks.map((social) => (
                 <a 
@@ -106,7 +109,7 @@ const Footer: React.FC = () => {
                 href={`mailto:${CONTACT.email}`} 
                 className="hover:text-gray-600 transition-colors"
               >
-                Email
+                {t('footer.email')}
               </a>
             </div>
           </div>
