@@ -160,6 +160,18 @@ export const TECHNOLOGIES: Technology[] = [
     category: TechnologyCategory.FRAMEWORK,
     proficiency: ProficiencyLevel.INTERMEDIATE,
   },
+  {
+    id: 'sanity',
+    name: 'Sanity CMS',
+    category: TechnologyCategory.FRAMEWORK,
+    proficiency: ProficiencyLevel.INTERMEDIATE,
+  },
+  {
+    id: 'supabase',
+    name: 'Supabase',
+    category: TechnologyCategory.DATABASE,
+    proficiency: ProficiencyLevel.INTERMEDIATE,
+  },
 ];
 
 // Education
@@ -186,6 +198,133 @@ export const EDUCATION: Education[] = [
 // Sample Projects - Replace with your actual projects
 export const PROJECTS: Project[] = [
   {
+    id: 'fdas',
+    title: 'Ferhat Değer AŞ - Corporate Platform',
+    description: 'Developed a comprehensive multilingual corporate web platform for Ferhat Değer Holding using Next.js 15, TypeScript, and Tailwind CSS 4. Integrated Sanity CMS for dynamic content management and Supabase for backend services. Built a complete career management system with secure CV upload functionality featuring rate limiting and Cloudflare Turnstile protection. Implemented an admin dashboard for managing job positions and applications, SSR-based authentication, and SEO optimization to ensure enterprise-level scalability, security, and high performance.',
+    technologies: [
+      TECHNOLOGIES.find(t => t.id === 'nextjs')!,
+      TECHNOLOGIES.find(t => t.id === 'typescript')!,
+      TECHNOLOGIES.find(t => t.id === 'tailwindcss')!,
+      TECHNOLOGIES.find(t => t.id === 'sanity')!,
+      TECHNOLOGIES.find(t => t.id === 'supabase')!,
+    ],
+    images: [
+      {
+        id: 'fdas-1',
+        url: '/projects/fdas.png',
+        alt: 'Ferhat Değer AŞ Corporate Platform',
+        order: 1,
+      },
+    ],
+    demoUrl: 'https://fdas.gokaysahin.com',
+    sourceUrl: undefined,
+    featured: true,
+    category: ProjectCategory.WEB_DEVELOPMENT,
+    createdAt: new Date('2025-10-01'),
+    updatedAt: new Date(),
+  },
+  {
+    id: 'evre-music',
+    title: 'Evre Music - Music Promotion Platform',
+    description: 'Built a modern music promotion website for Evre Music using Next.js and TypeScript. Features an interactive album showcase with dynamic hover effects and audio playback functionality. Implemented responsive design with Framer Motion animations and Tailwind CSS, creating an engaging user experience for music discovery. Integrated dynamic album release tracking, event management system, DJ profiles, toast notifications, and social media links while ensuring optimal performance and accessibility standards.',
+    technologies: [
+      TECHNOLOGIES.find(t => t.id === 'nextjs')!,
+      TECHNOLOGIES.find(t => t.id === 'typescript')!,
+      TECHNOLOGIES.find(t => t.id === 'tailwindcss')!,
+      TECHNOLOGIES.find(t => t.id === 'framer-motion')!,
+    ],
+    images: [
+      {
+        id: 'evre-1',
+        url: '/projects/evre-music.png',
+        alt: 'Evre Music Platform',
+        order: 1,
+      },
+    ],
+    demoUrl: 'https://www.evremusic.com',
+    sourceUrl: undefined,
+    featured: true,
+    category: ProjectCategory.WEB_DEVELOPMENT,
+    createdAt: new Date('2025-07-01'),
+    updatedAt: new Date(),
+  },
+  {
+    id: 'tayfur-pehlivan',
+    title: 'Tayfur Pehlivan - Real Estate Portfolio',
+    description: 'Developed a full-stack real estate web application for industrial real estate specialist Tayfur Pehlivan. Built both frontend and backend components with React, TypeScript, and Node.js. Implemented responsive UI components with Tailwind CSS and Framer Motion for property listings, sidebar navigation, and interactive elements. Created RESTful APIs to handle property data processing, filtering, and user interactions. The application ensures cross-device compatibility and optimal performance in a modern web environment with property search and contact management.',
+    technologies: [
+      TECHNOLOGIES.find(t => t.id === 'react')!,
+      TECHNOLOGIES.find(t => t.id === 'typescript')!,
+      TECHNOLOGIES.find(t => t.id === 'nodejs')!,
+      TECHNOLOGIES.find(t => t.id === 'tailwindcss')!,
+      TECHNOLOGIES.find(t => t.id === 'framer-motion')!,
+    ],
+    images: [
+      {
+        id: 'tayfur-1',
+        url: '/projects/tayfur-pehlivan.png',
+        alt: 'Tayfur Pehlivan Real Estate Portfolio',
+        order: 1,
+      },
+    ],
+    demoUrl: 'https://www.tayfurpehlivan.com',
+    sourceUrl: undefined,
+    featured: true,
+    category: ProjectCategory.WEB_DEVELOPMENT,
+    createdAt: new Date('2025-07-01'),
+    updatedAt: new Date(),
+  },
+  {
+    id: 'monaliens',
+    title: 'Monaliens - Web3 Gaming & DApp Ecosystem',
+    description: 'Developed a comprehensive NFT collection and DApp ecosystem on the MONAD Network using React.js, ethers.js, wagmi, and Web3Modal. Built interactive UI components with React Router, Styled Components, and Framer Motion. Implemented core Web3 features including wallet connectivity, NFT gallery with minting capabilities, staking mechanism, raffle system, P2P marketplace, and user profile management. Utilized component-based architecture and context-based state management for optimal performance and scalability.',
+    technologies: [
+      TECHNOLOGIES.find(t => t.id === 'react')!,
+      TECHNOLOGIES.find(t => t.id === 'typescript')!,
+      TECHNOLOGIES.find(t => t.id === 'wagmi')!,
+      TECHNOLOGIES.find(t => t.id === 'ethers')!,
+      TECHNOLOGIES.find(t => t.id === 'framer-motion')!,
+    ],
+    images: [
+      {
+        id: 'monaliens-1',
+        url: '/projects/monaliens.png',
+        alt: 'Monaliens DApp Interface',
+        order: 1,
+      },
+    ],
+    demoUrl: 'https://monaliens.xyz',
+    sourceUrl: undefined,
+    featured: true,
+    category: ProjectCategory.WEB_DEVELOPMENT,
+    createdAt: new Date('2025-03-01'),
+    updatedAt: new Date(),
+  },
+  {
+    id: 'lutr-ai',
+    title: 'Lutr AI - DeFi Intelligence Platform',
+    description: 'Developed a cutting-edge React.js and TypeScript application for DeFi decision-making with a modern and highly responsive UI. Featured advanced CSS animations, WebGL-powered particle effects for immersive visual experiences, and interactive glassmorphism components. Implemented custom scroll-based animations, parallax effects, and sophisticated micro-interactions. Applied responsive design principles across all breakpoints and optimized asset loading strategies to deliver a buttery-smooth user experience with minimal performance overhead.',
+    technologies: [
+      TECHNOLOGIES.find(t => t.id === 'react')!,
+      TECHNOLOGIES.find(t => t.id === 'typescript')!,
+      TECHNOLOGIES.find(t => t.id === 'framer-motion')!,
+    ],
+    images: [
+      {
+        id: 'lutr-1',
+        url: '/projects/lutr-ai.png',
+        alt: 'Lutr AI Platform Interface',
+        order: 1,
+      },
+    ],
+    demoUrl: 'https://www.lutr.ai',
+    sourceUrl: undefined,
+    featured: true,
+    category: ProjectCategory.WEB_DEVELOPMENT,
+    createdAt: new Date('2024-12-01'),
+    updatedAt: new Date(),
+  },
+  {
     id: 'osol-ai',
     title: 'OSOL.AI - Decentralized ETF Platform',
     description: 'Developed a React-based web application for a decentralized ETF platform on Solana blockchain. The project involved implementing real-time market data visualization using custom hooks and Zustand for state management, while building responsive UI components with Geist UI and Framer Motion. Integrated Solana wallet connectivity and Jupiter Terminal for DEX trading functionality, and created performance tracking features including NAV calculations and asset allocation charts.',
@@ -210,58 +349,6 @@ export const PROJECTS: Project[] = [
     createdAt: new Date('2024-12-01'),
     updatedAt: new Date(),
   },
-  {
-    id: 'monaliens',
-    title: 'Monaliens - Web3 Gaming & Messaging DApp',
-    description: 'Built a comprehensive decentralized application on Monad Testnet featuring three core functionalities: NFT-based spin wheel gaming, raffle system, and encrypted messaging platform. Implemented advanced Web3 integration with React 18, TypeScript, and modern blockchain technologies. Created responsive, mobile-first UI with wallet connectivity, smart contract integration, and real-time blockchain data management.',
-    technologies: [
-      TECHNOLOGIES.find(t => t.id === 'react')!,
-      TECHNOLOGIES.find(t => t.id === 'typescript')!,
-      TECHNOLOGIES.find(t => t.id === 'wagmi')!,
-      TECHNOLOGIES.find(t => t.id === 'tailwindcss')!,
-      TECHNOLOGIES.find(t => t.id === 'ethers')!,
-    ],
-    images: [
-      {
-        id: 'monaliens-1',
-        url: '/projects/monaliens.png',
-        alt: 'Monaliens DApp Interface',
-        order: 1,
-      },
-    ],
-    demoUrl: 'https://monaliens.xyz',
-    sourceUrl: undefined,
-    featured: true,
-    category: ProjectCategory.WEB_DEVELOPMENT,
-    createdAt: new Date('2024-11-01'),
-    updatedAt: new Date(),
-  },
-//   {
-//     id: 'portfolio-website',
-//     title: 'Portfolio Website',
-//     description: 'A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features smooth animations with Framer Motion, custom fonts, and optimized performance. Follows SOLID principles and modern React patterns.',
-//     technologies: [
-//       TECHNOLOGIES.find(t => t.id === 'nextjs')!,
-//       TECHNOLOGIES.find(t => t.id === 'typescript')!,
-//       TECHNOLOGIES.find(t => t.id === 'react')!,
-//       TECHNOLOGIES.find(t => t.id === 'tailwindcss')!,
-//       TECHNOLOGIES.find(t => t.id === 'framer-motion')!,
-//     ],
-//     images: [
-//       {
-//         id: 'portfolio-1',
-//         url: '/projects/portfolio-1.jpg',
-//         alt: 'Portfolio website homepage',
-//         order: 1,
-//       },
-//     ],
-//     demoUrl: 'https://gokaysahin.dev',
-//     sourceUrl: 'https://github.com/katex35/gokay-portfolio',
-//     featured: false,
-//     category: ProjectCategory.WEB_DEVELOPMENT,
-//     createdAt: new Date('2024-01-01'),
-//     updatedAt: new Date(),
-//   },
 ];
 
 // Sample Experience - Replace with your actual experience

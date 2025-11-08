@@ -100,8 +100,10 @@ const Hero: React.FC = () => {
                 : 'text-5xl sm:text-6xl lg:text-7xl xl:text-8xl'
             }`}
             style={{
-              color: isMobile ? '#1f2937' : '#ffffff',
-              WebkitTextStroke: isMobile ? 'none' : '0.25px #000000',
+              color: '#ffffff',
+              textShadow: isMobile 
+                ? '0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 2px rgba(0, 0, 0, 0.9)'
+                : '0 2px 12px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.7), 0 0 3px rgba(0, 0, 0, 1), 0 1px 2px rgba(255, 255, 255, 0.3)',
               fontWeight: '300',
               lineHeight: '1',
             } as React.CSSProperties}
@@ -118,9 +120,9 @@ const Hero: React.FC = () => {
             data-hero-desc
             className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-abc-diatype -mt-2 md:mt-0"
             style={{
-              color: 'rgb(255, 255, 255)',
-              WebkitTextStroke: isMobile ? '0.1px #000000' : '0.01px #000000',
-              fontWeight: '300',
+              color: '#ffffff',
+              textShadow: '0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 1)',
+              fontWeight: '400',
               lineHeight: '1.3',
             } as React.CSSProperties}
             initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}

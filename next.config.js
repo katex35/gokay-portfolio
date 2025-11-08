@@ -1,15 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [],
+    remotePatterns: [],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 31536000, // 1 year
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   compress: true,
   poweredByHeader: false,
